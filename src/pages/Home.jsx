@@ -22,10 +22,11 @@ const Home = () => {
       }
     }
     axiosItems();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories />
         <Sort />
@@ -36,7 +37,7 @@ const Home = () => {
           ? [...new Array(9)].map((_, i) => <Sceleton key={i} />)
           : items.map((obj, index) => <PizzaBlock {...obj} key={index} />)}
       </div>
-    </>
+    </div>
   );
 };
 

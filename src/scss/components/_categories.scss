@@ -27,5 +27,8 @@
         color: #fff;
       }
     }
+    li:last-child {
+      margin-right: 0;
+    }
   }
 }
