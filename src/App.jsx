@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 
+import Categories from './components/Categories';
 import Header from './components/Header';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
+import PizzaBlock from './components/PizzaBlock';
+import Sort from './components/Sort';
 
+import pizzas from './pizzas.json';
 import './scss/app.scss';
 
 function App() {
@@ -12,10 +14,16 @@ function App() {
       <Header />
       <div className="content">
         <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <div className="content__top">
+            <Categories />
+            <Sort />
+          </div>
+          <h2 className="content__title">Все пиццы</h2>
+          <div className="content__items">
+            {pizzas.map((obj, index) => (
+              <PizzaBlock {...obj} key={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
