@@ -2,6 +2,37 @@
 @import 'libs/normalize';
 @import 'components/all';
 
+.categories::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.categories::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.categories::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 9px;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
 body {
   background-color: $background;
 }
@@ -50,7 +81,7 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1330px) {
       flex-direction: column;
 
       .sort {
@@ -70,6 +101,7 @@ body {
       .categories {
         width: 90%;
         overflow-x: scroll;
+        padding-bottom: 10px;
       }
     }
   }

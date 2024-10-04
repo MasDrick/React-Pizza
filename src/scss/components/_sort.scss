@@ -2,6 +2,25 @@
 
 .sort {
   position: relative;
+
+  .arrow {
+    margin-left: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 0px 8px;
+    background: $orange;
+    border-radius: 50%;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($orange, 8%);
+    }
+  }
+  .rotate {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
   &__label {
     display: flex;
     align-items: center;
