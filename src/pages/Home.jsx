@@ -6,7 +6,7 @@ import PizzaBlock from '../components/PizzaBlock';
 import Sceleton from '../components/PizzaBlock/Sceleton';
 import Sort from '../components/Sort';
 
-const Home = () => {
+const Home = ({ searchValue }) => {
   const [items, setItems] = useState([]);
 
   const [isLoading, setisLoading] = useState(true);
@@ -19,15 +19,16 @@ const Home = () => {
 
   const [sortMethod, setSortMethod] = useState(false);
 
+  const search = searchValue ? `title=*${searchValue}` : '';
+
   useEffect(() => {
     setisLoading(true);
-    console.log(categoryId, sortType);
     async function axiosItems() {
       try {
         const response = await axios.get(
           `https://b75e697887327f15.mokky.dev/items?${
             categoryId > 0 ? `category=${categoryId}` : ''
-          }&sortBy=${sortMethod ? '' : '-'}${sortType.sortProperty}`,
+          }&sortBy=${sortMethod ? '' : '-'}${sortType.sortProperty}&${search}`,
         );
         setItems(response.data);
         setisLoading(false);
@@ -37,7 +38,7 @@ const Home = () => {
     }
     axiosItems();
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, sortMethod]);
+  }, [categoryId, sortType, sortMethod, searchValue]);
 
   return (
     <div className="container">
@@ -51,6 +52,7 @@ const Home = () => {
         />
       </div>
       <h2 className="content__title">Все пиццы</h2>
+      {/* {searchValue === '' ? 'Все пиццы' : searchValue} */}
       <div className="content__items">
         {isLoading
           ? [...new Array(9)].map((_, i) => <Sceleton key={i} />)
