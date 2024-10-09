@@ -48,6 +48,9 @@ body {
   @media (max-width: 660px) {
     width: calc(100vw - 30px);
     margin-top: 15px;
+    .input {
+      margin-top: 10px;
+    }
   }
 }
 

@@ -1,8 +1,12 @@
 import s from './Search.module.scss';
+import { useContext } from 'react';
+import { AppContext } from '../../App';
 
-const Search = ({ searchValue, setSearchValue }) => {
+const Search = () => {
+  const { searchValue, setSearchValue } = useContext(AppContext);
+
   return (
-    <div className={s.root}>
+    <div className={s.input}>
       <svg
         className={s.icon}
         height="24"

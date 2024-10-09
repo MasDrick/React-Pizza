@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Sort = ({ sortTitle, changeSort, rotate, clickRotate }) => {
+import { setSort } from '../redux/slices/filterSlice';
+
+const list = [
+  { name: 'популярности', sortProperty: 'rating' },
+  { name: 'цене', sortProperty: 'price' },
+  { name: 'алфавиту', sortProperty: 'title' },
+];
+
+const Sort = ({ rotate, clickRotate }) => {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filter.sort);
   const [open, setOpen] = useState(false);
-  // const [rotate, setRotate] = useState(false);
 
-  const list = [
-    { name: 'популярности', sortProperty: 'rating' },
-    { name: 'цене', sortProperty: 'price' },
-    { name: 'алфавиту', sortProperty: 'title' },
-  ];
-
-  const onClickSort = (index) => {
-    changeSort(index);
+  const onClickSort = (obj) => {
+    dispatch(setSort(obj));
+    console.log(obj);
     setOpen(!open);
   };
 
@@ -30,7 +35,7 @@ const Sort = ({ sortTitle, changeSort, rotate, clickRotate }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!open)}>{sortTitle.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
         <p onClick={() => clickRotate(!rotate)} className={rotate ? 'arrow rotate' : 'arrow'}>
           ↑
         </p>
@@ -42,7 +47,7 @@ const Sort = ({ sortTitle, changeSort, rotate, clickRotate }) => {
               <li
                 key={i}
                 onClick={() => onClickSort(obj)}
-                className={sortTitle.name === obj.name ? 'active' : ''}>
+                className={sort.name === obj.name ? 'active' : ''}>
                 {obj.name}
               </li>
             ))}

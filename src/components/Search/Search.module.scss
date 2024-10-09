@@ -1,6 +1,9 @@
-.root {
+.input {
   position: relative;
-  left: -50px;
+
+  @media (max-width: 660px) {
+    margin-top: 16px;
+  }
 
   .icon {
     width: 24px;
@@ -37,6 +40,10 @@
     transition: all 0.2s ease-in-out;
     &:focus {
       border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 1030px) {
+      width: 80%;
     }
   }
 }
