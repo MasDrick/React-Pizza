@@ -1,8 +1,13 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 import Search from './Search';
 
 const Header = () => {
+  const decrement = () => {
+    setCount(count - 1);
+  };
+
   return (
     <div className="header">
       <div className="container">

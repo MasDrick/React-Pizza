@@ -1,21 +1,29 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import qs from 'qs';
+
 import axios from 'axios';
 
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, setFilters, setSortMethod } from '../redux/slices/filterSlice';
+
 import Categories from '../components/Categories';
 import PizzaBlock from '../components/PizzaBlock';
 import Sceleton from '../components/PizzaBlock/Sceleton';
 import Sort from '../components/Sort';
-import { AppContext } from '../App';
 
 const Home = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const isSearch = useRef(false);
 
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
+  const sortMethod = useSelector((state) => state.filter.sortMethod);
 
-  const { searchValue } = useContext(AppContext);
+  const searchValue = useSelector((state) => state.filter.searchValue);
 
   const [items, setItems] = useState([]);
 
@@ -25,11 +33,9 @@ const Home = () => {
     dispatch(setCategoryId(id));
   };
 
-  const [sortMethod, setSortMethod] = useState(false);
-
   const search = searchValue ? `title=*${searchValue}` : '';
 
-  useEffect(() => {
+  const fetchPizzas = () => {
     setisLoading(true);
     async function axiosItems() {
       try {
@@ -45,14 +51,43 @@ const Home = () => {
       }
     }
     axiosItems();
+  };
+
+  useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+      params.sortMethod = params.sortMethod === 'true';
+      dispatch(setFilters(params));
+      isSearch.current = true;
+    }
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (!isSearch.current) {
+      fetchPizzas();
+    }
+
+    isSearch.current = false;
   }, [categoryId, sortType, sortMethod, searchValue]);
+
+  useEffect(() => {
+    const queryString = qs.stringify({
+      sortType,
+      categoryId,
+      sortMethod: sortMethod.toString(),
+      searchValue,
+    });
+
+    navigate(`?${queryString}`);
+  }, [categoryId, sortType, sortMethod]);
 
   return (
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort rotate={sortMethod} clickRotate={setSortMethod} />
+        <Sort sortMethod={sortMethod} />
       </div>
       <h2 className="content__title">
         {searchValue === '' ? 'Все пиццы' : `Поиск по: ${searchValue}`}
