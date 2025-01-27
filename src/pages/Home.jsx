@@ -19,6 +19,8 @@ const Home = () => {
 
   const isSearch = useRef(false);
 
+  const isMounted = useRef(false);
+
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const sortMethod = useSelector((state) => state.filter.sortMethod);
@@ -73,14 +75,18 @@ const Home = () => {
   }, [categoryId, sortType, sortMethod, searchValue]);
 
   useEffect(() => {
-    const queryString = qs.stringify({
-      sortType,
-      categoryId,
-      sortMethod: sortMethod.toString(),
-      searchValue,
-    });
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortType,
+        categoryId,
+        sortMethod: sortMethod.toString(),
+        searchValue,
+      });
 
-    navigate(`?${queryString}`);
+      navigate(`?${queryString}`);
+    }
+
+    isMounted.current = true;
   }, [categoryId, sortType, sortMethod]);
 
   return (
