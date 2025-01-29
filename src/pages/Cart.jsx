@@ -1,24 +1,29 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import CartItem from '../components/CartItem';
 import CartEmpty from '../components/CartEmpty';
-
 import { Link } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { clearItems } from '../redux/slices/cartSlice';
+import ConfirmModal from '../components/ConfirmModal'; // Импортируем модальное окно
 
 const Cart = () => {
   const dispatch = useDispatch();
-
   const { totalPrice, items, isEmpty } = useSelector((state) => state.cart);
-
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
-  const onClickClear = () => {
-    if (window.confirm('Очистить корзину?')) {
-      dispatch(clearItems());
-    }
+  const [isClearModalOpen, setIsClearModalOpen] = useState(false); // Состояние для модального окна
+
+  const handleClearCart = () => {
+    setIsClearModalOpen(true); // Открываем модальное окно
+  };
+
+  const handleConfirmClear = () => {
+    dispatch(clearItems()); // Очищаем корзину
+    setIsClearModalOpen(false); // Закрываем модальное окно
+  };
+
+  const handleCancelClear = () => {
+    setIsClearModalOpen(false); // Закрываем модальное окно без очистки
   };
 
   if (isEmpty) {
@@ -60,7 +65,7 @@ const Cart = () => {
             </svg>
             Корзина
           </h2>
-          <div onClick={onClickClear} className="cart__clear">
+          <div onClick={handleClearCart} className="cart__clear">
             <svg
               width="20"
               height="20"
@@ -96,7 +101,6 @@ const Cart = () => {
                 strokeLinejoin="round"
               />
             </svg>
-
             <span>Очистить корзину</span>
           </div>
         </div>
@@ -130,7 +134,6 @@ const Cart = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-
               <span>Вернуться назад</span>
             </Link>
             <div className="button pay-btn">
@@ -138,6 +141,16 @@ const Cart = () => {
             </div>
           </div>
         </div>
+
+        {/* Модальное окно */}
+        <ConfirmModal
+          isOpen={isClearModalOpen}
+          onConfirm={handleConfirmClear}
+          onCancel={handleCancelClear}
+          title="Очистить корзину?"
+          confirmText="Да, очистить"
+          cancelText="Отмена"
+        />
       </div>
     </div>
   );

@@ -1,0 +1,202 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D612FC7B7FCA5BE822752BEE1E5.avif",
+    "title": "Пепперони Фреш с перцем",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 803,
+    "category": 4,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D610D2925109AB2E1C92CC5383C.avif",
+    "title": "Сырная",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 245,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D6110059795842D40396BCF1E73.avif",
+    "title": "Цыпленок барбекю",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 295,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D6149EB101D8727573088FA2EFF.avif",
+    "title": "Кисло-сладкий цыпленок",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 275,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023.avif",
+    "title": "Четыре сезона",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 415,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D6122BB3424B593BB15EACE3197.avif",
+    "title": "Крейзи Пепперони",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 580,
+    "category": 4,
+    "rating": 2
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D610A62D78598406363A9A8AD65.avif",
+    "title": "Пепперони",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 675,
+    "category": 1,
+    "rating": 9
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D6105EF6690B86FBDE6150B5B0C.avif",
+    "title": "Маргарита",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 450,
+    "category": 2,
+    "rating": 10
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D6134BC4150BDD8E792D866AB52.avif",
+    "title": "Аррива",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 395,
+    "category": 5,
+    "rating": 10
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D61546D8483A61A0BBAA7ADCC78.avif",
+    "title": "Овощи и грибы 🌱",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 285,
+    "category": 2,
+    "rating": 7
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ee7d6149eb101d8727573088fa2eff.avif",
+    "title": "Мясная Deluxe",
+    "types": [0, 1],
+    "sizes": [30, 40],
+    "price": 750,
+    "category": 1,
+    "rating": 8
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ee7d617e9339cfb185921a343ad8fd.avif",
+    "title": "Гавайская",
+    "types": [0],
+    "sizes": [26, 30, 40],
+    "price": 520,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ef9050501f3fa690a64053f5f07626.avif",
+    "title": "Кола-Барбекю",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 620,
+    "category": 3,
+    "rating": 5
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ef9c1daafcf3529a62947b9522a8fe.avif",
+    "title": "Мясной микс",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 580,
+    "category": 1,
+    "rating": 7
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11eefb595a197c24ba932a0ad1144afb.avif",
+    "title": "Пицца с креветками",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 850,
+    "category": 4,
+    "rating": 9
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ee7d613b84a5dbb4c1c50fb9583b7e.avif",
+    "title": "Песто",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 320,
+    "category": 2,
+    "rating": 8
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ee7d61706d472f9a5d71eb94149304.avif",
+    "title": "Чоризо Фреш",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 490,
+    "category": 5,
+    "rating": 7
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ee7d61389ab51a8f648a0dba5b1689.avif",
+    "title": "Карбонара",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 350,
+    "category": 2,
+    "rating": 9
+  },
+  {
+    "id": 18,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ef9176e7a46e9087094f742980c536.avif",
+    "title": "React микс",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 480,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": 19,
+    "imageUrl": "https://media.dodostatic.net/image/r:292x292/11ee7d6175c10773bfe36e56d48df7e3.avif",
+    "title": "Жюльен",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 550,
+    "category": 5,
+    "rating": 6
+  }
+]

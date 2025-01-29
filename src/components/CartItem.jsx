@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
+import ConfirmModal from './ConfirmModal'; // Импортируем модальное окно
 
 const CartItem = ({ id, title, type, price, count, imageUrl, size }) => {
   const dispatch = useDispatch();
+  const [modalOpen, setModalOpen] = useState(false);
 
   const onClickPlus = () => {
-    dispatch(
-      addItem({
-        id,
-      }),
-    );
+    dispatch(addItem({ id }));
   };
+
   const onClickMinus = () => {
     if (count > 1) {
       dispatch(minusItem(id));
@@ -19,21 +18,30 @@ const CartItem = ({ id, title, type, price, count, imageUrl, size }) => {
       dispatch(removeItem(id));
     }
   };
-  const onClickRemove = () => {
-    if (window.confirm('Вы действительно хотитe удалить пиццу?')) {
-      dispatch(removeItem(id));
-    }
+
+  const handleRemove = () => {
+    setModalOpen(false);
+    dispatch(removeItem(id));
   };
 
   return (
     <div className="cart__item">
+      {/* Модальное окно */}
+      <ConfirmModal
+        isOpen={modalOpen}
+        onConfirm={handleRemove}
+        onCancel={() => setModalOpen(false)}
+        title={`Удалить пиццу "${title}"?`}
+        confirmText="Да"
+        cancelText="Нет"
+      />
+
       <div className="cart__item-img">
         <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       </div>
       <div className="cart__item-info">
         <h3>{title}</h3>
         <p>
-          {' '}
           {type}, {size} см.
         </p>
       </div>
@@ -82,7 +90,7 @@ const CartItem = ({ id, title, type, price, count, imageUrl, size }) => {
         <b>{price * count} ₽</b>
       </div>
       <div className="cart__item-remove">
-        <div onClick={onClickRemove} className="button button--outline button--circle">
+        <div onClick={() => setModalOpen(true)} className="button button--outline button--circle">
           <svg
             width="10"
             height="10"

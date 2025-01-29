@@ -1,0 +1,109 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modalOverlay.fadeOut {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+.modal.scaleDown {
+  animation: scaleDown 0.3s ease-in-out forwards;
+}
+
+.modalTitle {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalButton {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modalButtonYes {
+  background-color: #fe5f1e; // Оранжевый фон
+  color: #fff; // Белый текст
+}
+
+.modalButtonYes:hover {
+  background-color: #ff7e4d; // Светлее при наведении
+}
+
+.modalButtonNo {
+  background-color: transparent; // Прозрачный фон
+  color: #fe5f1e; // Оранжевый текст
+  border: 1px solid #fe5f1e; // Оранжевая граница
+}
+
+.modalButtonNo:hover {
+  background-color: #ffe6d9; // Светлый оранжевый фон при наведении
+}
