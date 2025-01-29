@@ -25,8 +25,8 @@ const Sort = () => {
 
   useEffect(() => {
     const handleClick = () => {
-      if (sortRef.current && event.composedPath().includes(sortRef.current)) {
-        console.log('Был клик на сорт');
+      if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
+        setOpen(false); // тут сделать норм функционал
       }
     };
     document.body.addEventListener('click', handleClick);
